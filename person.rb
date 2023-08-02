@@ -1,23 +1,25 @@
-class Person
-  attr_accessor :name, :age
-  attr_reader :id
+# person.rb
+require_relative 'nameable'
 
-  def initialize(id, age, name = 'Unknown', parent_permission: true)
-    @id = id
-    @name = name
+class Person < Nameable
+  attr_accessor :age, :name
+
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
     @age = age
+    @name = name
     @parent_permission = parent_permission
   end
-
-  private
 
   def of_age?
     @age >= 18
   end
 
-  public
-
   def can_use_services?
     of_age? || @parent_permission
+  end
+
+  def correct_name
+    @name
   end
 end
