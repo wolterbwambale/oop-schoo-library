@@ -1,4 +1,3 @@
-# person.rb
 require_relative 'nameable'
 
 class Person < Nameable
@@ -22,5 +21,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(rental)
+    @rentals << rental
+    rental.person = self
   end
 end
