@@ -102,7 +102,7 @@ class App
     puts 'Rentals: '
     @rentals.each do |rental|
       person_info = "[#{rental.person.class}] Name: #{rental.person.name},
-       Id: #{rental.person.id}, Age: #{rental.person.age}"
+      Id: #{rental.person.id}, Age: #{rental.person.age}"
       puts "Date: #{rental.date}, Book: '#{rental.book.title}'
       by #{rental.book.author}, Person: #{person_info}"
     end
