@@ -2,8 +2,12 @@
 require_relative 'person'
 
 class Teacher < Person
-  def initialize(specialization, parent_permission: true, name: 'Unknown', age: 0)
-    super(parent_permission: parent_permission, name: name, age: age)
+  def initialize(age, specialization, **defaults)
+    @id = rand(1..1000)
+    defaults[:name] ||= 'Unknown'
+    defaults[:parent_permission] = true if defaults[:parent_permission].nil?
+
+    super(age, **defaults)
     @specialization = specialization
   end
 
@@ -11,6 +15,5 @@ class Teacher < Person
     true
   end
 
-  # Add a getter for specialization
-  attr_reader :specialization
+  attr_accessor :specialization, :id
 end
